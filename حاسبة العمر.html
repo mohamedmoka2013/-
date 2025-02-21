@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Õ«”»… «·⁄„—</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, #74ebd5, #ACB6E5);
+            direction: rtl; /* Ã⁄· «·« Ã«Â „‰ «·Ì„Ì‰ ≈·Ï «·Ì”«— */
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 400px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        label, p {
+            font-size: 1.2rem;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            text-align: right; /*  ‰”Ìﬁ «·≈œŒ«· ·Ì ‰«”» „⁄ «·‰’Ê’ «·⁄—»Ì… */
+        }
+        button {
+            padding: 15px 20px;
+            font-size: 1.2rem;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #ageResult {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Õ«”»… «·⁄„—</h1>
+        <label for="birthdate">√œŒ·  «—ÌŒ „Ì·«œﬂ:</label>
+        <input type="date" id="birthdate">
+        <button onclick="calculateAge()">«Õ”» «·⁄„—</button>
+        <p id="ageResult"></p>
+    </div>
+
+    <script>
+        function calculateAge() {
+            const birthdate = document.getElementById('birthdate').value;
+            const birthDateObj = new Date(birthdate);
+            const today = new Date();
+            
+            let age = today.getFullYear() - birthDateObj.getFullYear();
+            const monthDifference = today.getMonth() - birthDateObj.getMonth();
+
+            if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDateObj.getDate())) {
+                age--;
+            }
+
+            document.getElementById('ageResult').innerText = `⁄„—ﬂ ÂÊ ${age} ”‰….`;
+        }
+    </script>
+
+</body>
+</html>
